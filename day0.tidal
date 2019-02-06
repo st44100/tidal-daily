@@ -1,0 +1,116 @@
+# Start SuperCollider and exec `d1 $ sound "bd sn"`
+# Then, Select Line below and Ctrl + Enter (require TidalCycles for VSCode)
+
+d1 $ sound "bd sn"
+
+d1 $ sound "bd:3"
+
+d1 $ sound "bd" # n "3"
+
+d1 $ sound "bd sd:3"
+
+d1 $ sound "sd:1"
+
+#
+
+d1 $ sound "bd sd:1"
+
+d2 $ sound "hh hh hh hh"
+
+d3 $ sound "arpy:1"
+
+
+#
+
+p "susan" $ sound "bd sd:1"
+
+p "gerard" $ sound "hh hh hh hh"
+
+#
+
+d1 $ sound "bd sd hh cp mt arpy drum"
+
+d1 silence
+
+hush
+
+#
+
+d1 $ sound "bd"
+
+d2 $ sound "~ cp"
+
+solo 1
+
+unsolo 1
+
+#
+
+d1 $ sound "[bd sd sd hh] cp"
+
+d1 $ sound "[bd bd [bd bd]] [hh [bd hh]] cp"
+
+d1 $ sound "bd bd . sd sd . hh hh"
+
+d1 silence
+
+d2 silence
+
+#
+
+d1 $ sound "[bd bd bd, sd cp sd cp]"
+
+d1 $ sound "[bd bd bd, sd cp sd cp, arpy arpy, odx]"
+
+d1 $ sound "[bd bd bd, [sd sd] cp, arpy [arpy [arpy arpy] arpy arpy], odx]"
+
+d1 $ so1/2und "bd <arpy:1 arpy:2 arpy:3>"
+
+#
+
+d1 $ sound "bd*2"
+
+d1 $ sound "bd*4"
+
+d1 $ sound "bd/2"
+
+
+d1 $ sound "bd*3" -- plays the bd sample three times each cycle
+
+d2 $ sound "bd/3" -- plays the bd samples only once each third cycle
+
+d2 $ sound "hh/2" -- plays the hh samples only once each 1/2 cycle
+
+hush
+
+#
+
+cps 2
+
+d1 $ sound "bd sd"
+
+bps(120/60)
+
+cps(100/60)
+
+#
+
+d1 $ sound "bd [hc ho] bd [hc*2] ho"
+
+d1 $ sound "bd [hc ho] bd [hc*2] [ho, bd/2, sd] [sd/2, bd/2] ho"
+
+d1 $ sound "[bd [cp cp]*2]/2 [bd [cp bd]/2]*2"
+
+d1 $ sound "bass sn bass:1 sn:1 bass:2 sn:2 bass:3 sn:3"
+
+d1 $ sound "bass sn bass sn" #n "0 4 0 5"
+
+#
+
+d1 $ sound "bd ~ sn [~ cp] ~"
+
+d1 $rev $sound "bd ~ bass"
+
+d2 $sound "bd ~ bass"
+
+hush

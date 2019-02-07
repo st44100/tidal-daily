@@ -1,0 +1,104 @@
+
+d1 $ sound "[bd hh*2 bd] [bd hh ho] [bd, sd]"
+
+d2 $ sound "[hh ho cp] [cb] cp"
+
+d3 $ sound "[co*4, [hh hc], [can:1 can:3 can:4], [bd*4], [~ dr2:1]]"
+
+d4 $ sound "dr2:1"
+
+d4 $density 2 $sound "dr2:3"
+
+d4 $sound "bd*4" #gain "1.0 0.8" #gain (rand)
+
+d4 $sound "hc" #delay "0.8" #delaytime "0.124"
+
+-- vvvv Day1 tidal vvvv
+
+d1
+$sound "[hc*16, [cb:5 bd hh bd]*4]"
+#delay "0.8 rand"
+#delaytime "1.0"
+#delayfeedback (rand)
+#pan (rand)
+
+hush
+
+-- ^^^^ Day1 tidal ^^^^
+
+
+
+d4 $sound "{bd*2, cp*3}"
+
+d4 silence
+
+d4
+$sound
+  "bd(3, 8)"
+
+d2
+$sound
+  "cp(5, 8)"
+
+solo
+  4
+
+solo 1
+
+hush
+
+
+d1
+$cat[
+  sound "bd hc*2",
+  sound "cp*2 ho",
+  sound "bass"
+]
+
+d1
+$slowcat[
+  sound "bd hc*2",
+  sound "cp*2 ho",
+  sound "bass"
+]
+
+d1
+$stack[
+  sound "bd hc*2",
+  sound "cp*2 ho",
+  sound "bass"
+]
+
+hush
+
+d1
+$every 4 (rev)
+$sometimesBy 0.2 (slow 2)
+$sometimesBy 0.8 (jux  (iter 4))
+$stack [
+  sound "ifdrums(3, 8, 0)",
+  sound "bd(3, 8, 3)",
+  sound "glitch(2, 8)"
+]
+#n (irand 64)
+#pan (rand)
+#delay "0.3" #delaytime "0.25" #delayfeedback "0.5"
+#gain "1.0"
+
+
+hush
+
+
+d1
+$jux (iter 4)
+$jux (iter 2)
+$stack[
+s "supersaw(7,8,4)" #n "{0, 7, 10, 17, 19}" #speed "1.5" #pan (rand),
+s "supersaw(7,8,2)" #n "{0, 7, 10, 17, 19}" #speed "1.0" #pan (rand),
+s "supersaw(3,8,7)" #n "{0, 7, 10, 17, 19}" #speed "0.75" #pan (rand),
+s "supersaw(3,8,5)" #n "{0, 7, 10, 17, 19}" #speed "0.5" #pan (rand),
+s "supersaw(3,8,3)" #n "{0, 7, 10, 17, 19}" #speed "0.25" #pan (rand)
+]
+|+|n "0 7 -7 12 -12"
+#sustain "0.15 0.05"
+#gain "1.0"

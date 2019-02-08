@@ -1,0 +1,145 @@
+d1 $ sound
+$cat [
+  "bd {sd, bd ,808:9} bd {sd, bd, 808:9}"
+]
+$ dentisy 1.25
+
+d2 $ sound
+$cat [
+  "808:2 808:4 808:6 808:9",
+  "808:1 808:5"
+]
+
+hush
+
+
+d1 $ sound "bd(5,8)"
+
+cps (-1)
+
+d1 $ sound "[bd [bd cp] hh 808:2]*4"
+
+d1 $ sound "oc*4" #n "1 2 3 4"
+
+d2 $ sound "breaks126"
+
+d1 $ sound "[[bd [bd bd bd bd]] bd sn:5] [bd sn:3]"
+
+d1 $ sound "<bd sn> <sd [cp cp]> <bd [cp cp]>"
+
+d1 $ sound "drum drum drum drum" # vowel "o"
+
+d1 $ sound "drum drum drum drum" # vowel "a o p p"
+
+d1 $ vowel "a o ~ i" # sound "drum"
+
+d1 $ sound "numbers:1 numbers:2 numbers:3 numbers:4" # speed "1 1.5 2 0.5"
+
+d1 $ speed "1 2 4" # sound "jungbass:6"
+
+d1 $ up "0 ~ 12 24" # sound "jungbass:6"
+
+d1 $ sound "kurt:4 kurt:4" # shape "0 0.78" # gain "0.7"
+
+d1 $ sound "bd*32" # gain sine
+
+d1 $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ slow 2 $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ fast 2 $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1
+$ fast 2
+$ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1
+$ hurry 2
+$ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1
+$ rev
+$ hurry 2
+$ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ fast 4 $ palindrome $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ iter 4 $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ every 4 (fast 2) $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ every 4 (# vowel "a o") $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ jux (rev) $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ jux (hurry 2) $ sound "arpy arpy arpy:1 arpy:2"
+
+d1 $ chunk 4 (hurry 2) $ sound  "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ chunk 4 (# speed 2) $ sound  "alphabet:0 alphabet:1 alphabet:2 alphabet:3"
+
+d1 $ sound  "alphabet:0 alphabet:1 alphabet:2 alphabet:3"
+
+d1 $ jux (rev . (slow 1.5)) $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ sound "jvbass [jvbass jvbass] jvbass ~" # note "1 [3 5] 7"
+
+d1 $ sound "jvbass [jvbass jvbass] jvbass ~" # iter 3 (note "1 [3 5] 7")
+
+d1 $ n "0 1 2 3" # sound "arpy"
+
+d1 $ n (run 4) # sound "arpy"
+
+d2 $ n (run 8) # sound "ho"
+
+d1 $ n (run 8) # sound "hc"
+
+d3 $ n (run 4) # sound "oc"
+
+d4 $ n (run 12) # sound "hh"
+
+d4 $ n (run 12) # sound "hh27"
+
+d4 $ n (run 4) # sound "hit"
+
+d4 $ hurry 2 $ n (run 12) # sound "ht"
+
+d3 $ n (run 12) # sound "ht"
+
+d2 $ chunk 4 (# speed 2) $ n (run 6) # sound "ht"
+
+d1 $ n "0..4" # sound "arpy"
+
+d1 $ sound "[voodoo voodoo:3, arpy arpy:4 arpy:2]"
+
+d1 $ sound "[voodoo voodoo:3, arpy arpy:4 arpy:2]"
+
+d1 $ sound "{voodoo voodoo:3, arpy arpy:4 arpy:2}"
+
+d1 $ sound "[drum bd hh bd, can can:2 can:3 can:4 can:2]"
+
+d1 $ sound "{drum bd hh bd, can can:2 can:3 can:4 can:2}"
+
+d1 $ sound "[bd sn, can:2 can:3 can:1, arpy arpy:1 arpy:2 arpy:3 arpy:5]"
+
+d1 $ sound "{bd sn, can:2 can:3 can:1, arpy arpy:1 arpy:2 arpy:3 arpy:5}"
+
+d1 $ sound "bd(3,8) sn(5,8)"
+
+d1 $ sound "bd(5,8,2)"
+
+d1 $ sound (samples "amen*8" (irand 12))
+
+{-
+  vvvvv Day 2 vvvvv
+-}
+
+d1 $ sound "[bd(3,8) sn(5,8), oc(3,8) hh(5,8), [arpy:1(2, 4)], [arpy:3(4, 8)], [ht(4, 8)], [lt(2, 8), lt(4, 8)], [mt:2(4, 8, 2)]]"
+
+{-
+  ^^^^^^ Day 2 ^^^^^^
+-}
+
+hush

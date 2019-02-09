@@ -1,0 +1,17 @@
+{-
+  vvvv Day 3: * 8 beats vvvv
+-}
+
+d1
+$ hurry 1.03
+$stack [
+  "[hh ~]*8" #n "0",
+  "[~ sd]*2" #n "2 4",
+  "bd ~ [bd bd] ~" #n "0 1"
+]
+
+{-
+  ^^^^ Day 3: * 8 beats ^^^^
+-}
+
+hush

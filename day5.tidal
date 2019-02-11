@@ -1,11 +1,10 @@
 {-
   vvvv Day 5: * 8 beats - The Cardigans / carnival vvvv
 -}
-
 d1
 $ stack [
-  "[ho ~ ]*8" #n "4" #gain 0.5,
-  "[~ ~ sd ~] * 2" #n "0" #gain 0.8,
-  "[bd ~*3] [bd*2 ~*2]" #n "5"
+  "[ho ~ ~ ~]*8" #n "4" #gain 0.5,
+  "[~ ~ sd ~]*2" #n "2" #gain 1,
+  "[bd ~ ~ ~ ] [bd bd ~ ~]" #n "4"
 ]
-# cps 0.527
+# cps 0.47

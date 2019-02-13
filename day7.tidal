@@ -1,0 +1,97 @@
+{-
+  vvvv Day 7:
+-}
+
+setcps(130/60/4)
+
+d1
+$ stack [
+  "[~*2 sd ~]*4" #n "7" #gain 0.8,
+  "[~ ho]*4" #n "6" #gain 0.8,
+  "[~ hc hc ho]*2" #n "6" #gain 0.8,
+  "bd*4" #n "1 0 1 0"
+]
+
+{--
+  day7: systhes
+--}
+
+d2
+$ stack [
+  sound (samples "hc*4" (iter 4 $ run 4)),
+  sound "supersaw ~*3"
+    # n "c5 d5*2"
+    # sustain "0.4 0.2",
+  sound "superhat*8"
+    # sustain "0.4 0.7 0.1 0.12"
+    # accelerate "[0.5 -0.5]/4",
+  sound
+    (samples "arpy:2*8" (run 8))
+    # speed "1.5"
+    # cut "2 3 2 4",
+  sound
+    (samples "bass2*6" (run 6))
+    # speed "0.9"
+    # cut "1 2"
+]
+
+d1 $ midinote "60 62*2" # s "supersaw"
+
+d1 $ n "<[a5, cs5, e5, g5]*3 [d5, fs5, g5,c5]>"
+# s "supersaw"
+# gain "0.7"
+
+d1
+$ n "0 5 7 9"
+# s "supersaw"
+# attack "1 0.1 0.4 2"
+# decay "0.4 0.2 0.4 0.1"
+# sustain "0.2 0.1 0.5 1.2"
+# release "0.2 0.05 0.1 0.3"
+# pitch1 "0.5 1 1.5 1.2"
+
+d1
+$ jux (# accelerate "-0.1")
+$ s "supermandolin*8"
+# midinote "[80!6 78]/8"
+# sustain "1 0.25 2 1"
+
+d1
+$ midinote (slow 2 $ (run 8) * 7 + 50)
+# s "supergong"
+# decay "[1 0.2 0.3 0.5]/2"
+# voice "[0.5 0 1 0]/4"
+
+d1
+$ sound "supernoise/8"
+# midinote ((irand 10) + 30)
+# sustain "8"
+# accelerate "0.5"
+# voice "0.5"
+# pitch1 "0.15"
+# slide "-0.5"
+# resonance "0.7"
+# attack "1"
+# release "20"
+# room "0.9"
+# size "0.9"
+# orbit "1"
+
+d2
+$ every 4 (echo (negate 4/32))
+$ n "[c5 c4 c1 c2]*4"
+# s "supernoise"
+# accelerate "-2"
+# speed "1"
+-- # sustain "0.1 ! ! 1"
+# voice "0.0"
+
+d3
+$ n "[c2 e3 g4 c5 c4 c3]*4/3"
+# s "superchip"
+# sustain "0.1"
+# pitch2 "[1.2 1.5 2 3]"
+# pitch3 "[1.44 2.25 4 9]"
+# voice (slow 1 "0 0.25 0.5 0.75")
+# slide "[0 0.1]/8"
+# speed "1.5"

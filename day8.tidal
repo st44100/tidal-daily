@@ -1,0 +1,63 @@
+setcps(127/60/4)
+
+d1 $ sound "bd sn bd hh"
+
+d2 $ sound "ho*8" #gain "0.3"
+
+d3
+$ every 2 (rev) (
+  sound "arpy*4"
+  #n "0 1 2 3"
+)
+#gain "0.5"
+
+d4
+$ every 4 (density 2)
+$ sound "arpy*2"
+# gain (every 4 (rev) $ "1 0.6 0.5 0.8")
+# n (irand 4)
+# pan (irand 1)
+# vowel "a i u e o"
+
+d5
+$ every 4 (|-| up "3")
+  $ every 2 (|+| up "5")
+    $ sound "arpy*4"
+    # up "0 2 4 5"
+
+d6
+$ slow 2
+$ sound "arpy(3, 8, 2)*12"
+# up (run 12)
+
+d1
+$ s "hh([5 3]/2, 8)"
+
+d1
+$ s "hh(7, 16, 14)"
+
+d1
+$ s "hh(9, 16)"
+
+d1 $ sound "arpy*8" # up (every 2 (rev) (run 8))
+
+d1 $ n (every 4 (rev) (run 8)) # s "drum 808" # pan sine
+
+d1
+$ stack [
+  "hh([5 3]/2, 8)"
+    # pan sine
+    # up (every 2 (rev) (run 8)),
+  "hh(7, 16, 14)"
+    # pan sine
+    # up (every 2 (rev) (run 8)),
+  "hh(9, 16)"
+    # pan saw
+    # up (every 2 (rev) (run 8)),
+  "arpy*8"
+    # pan sine
+    # up (every 2 (rev) (run 8)),
+  "[drum, 808]*4"
+    # pan saw
+    # n (every 4 (rev) (run 8))
+]

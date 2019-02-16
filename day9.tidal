@@ -1,0 +1,70 @@
+
+{--
+  vvv Day 9: Buddha Machine vvv
+--}
+
+setcps(120/60/4)
+
+d4
+$ sound "tabla(3,8)"
+# n (irand 25)
+# pan (rand)
+
+d5
+$ sometimesBy (rand) (slow (rand))
+$ sound "[tabla*2?]"
+# n (irand 25)
+# pan (rand)
+# gain (rand)
+
+d6
+$ sometimesBy (rand) (fast (rand))
+$ sound "[tabla]*2?"
+# n (irand 25)
+# pan (rand)
+
+d7
+$ sometimesBy (rand) (fast (rand))
+$ degradeBy 0.7
+$ sound "tabla"
+# n (irand 25)
+# pan (rand)
+# delay (rand)
+# delayfeedback "0.4"
+# delaytime "0.4"
+
+d4 $ silence
+
+d5 $ silence
+
+d6 $ silence
+
+d7 $ silence
+
+hush
+
+{--
+  ^^^ Day:9 ^^^
+--}
+
+
+setcps(118/60/4)
+
+d1
+$ sound "ho*8"
+# n (irand 4)
+# gain "0.7"
+# delay (rand)
+# delayfeedback "0.4"
+# delaytime "0.4"
+# pan (rand)
+
+d2 $ sound "[[bd, sn] hh]*4?"
+
+d3
+$ sound
+"[[ho:1, hc:2] 808lc]*4?"
+
+d4
+$ sound "808ht"
+# n (irand 5)

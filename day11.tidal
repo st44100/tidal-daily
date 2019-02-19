@@ -1,0 +1,15 @@
+setcps(120/60/4)
+
+d1
+$ whenmod 8 2 (rev)
+$ n "<[c4, d6] [c3, c4]> <[c4, d6] [d4, c5]> <[f4, f6] [c5, d6]>"
+# s "supersaw"
+# voice (irand 8)
++| "1 2"
+# velocity "[1 0.9]"
+# lfo (irand 5)
+# pitch1 (rand)
+# attack (rand)
+# sustain "0.8 0.2"
+# release (rand)
+# slide "[0 0.1]/8"

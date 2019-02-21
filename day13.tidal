@@ -1,0 +1,65 @@
+setcps(180/60/4)
+
+setcps(120/60/4)
+
+{--
+  vvvv Day 13: slice #2
+--}
+
+d1
+  -- $ fast 2
+  $ every 3 (iter 2)
+  $ slice 2 "[<0*8 0*2> 3*4 2 4] [4..7]"
+  $ sound "breaks165"
+  # legato 1
+  # cps (180/60/4)
+
+d2
+  $ sometimes(slow 2)
+  $ every 3 (iter 2)
+  $ slice 2 "[<0*8 0*2> 3*4 2 4] [4..7]"
+  $ sound "breaks165"
+  # legato 1
+
+d3
+  $ every 3 (striate 15)
+  $ sometimes (slow 2)
+  $ every 4 (# hpf (range 2000 10000 saw))
+  $ every 4 (# room (range 0.4 1.2 sine))
+  $ s "drum*8"
+  # pan (rand)
+
+d4
+  $ every 8 (# hpf (range 1000 10000 saw))
+  -- $ every 8 (# lpf (range 100 1000 sine))
+  $ every 3 (slow 2)
+  $ every 2 (striate (irand 2))
+  $ stack [
+    s "<dr:4*2> <dr:3*2> <dr:3 dr:4>" #gain 1.1,
+    s "[~ hh]*4",
+    s "[~ cp]*2"
+  ]
+  -- # cut 4
+
+d1 silence
+
+d2 silence
+
+d3 silence
+
+d4 silence
+
+d1
+  $ sometimes (smash 2 [2, 3, 4])
+  $ sound "breaks152"
+  # cps (120/60/4)
+
+d1
+  $ stut ((irand 5) +| 3) (0.8 - (irand 5) /| 10) (rand +| 0.3)
+  $ sound "bd sn ht lt"
+
+d1
+  $ stutWith 3 (1/3) (# vowel "{a e i u o}%2")
+  $ stutWith 3 (1/3) (# hpf (range 1000 10000 sine))
+  $ stutWith 3 (1/3) (# lpf (range 10 400 saw))
+  $ sound "ht lt"

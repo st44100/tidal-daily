@@ -1,0 +1,66 @@
+{--
+    vvvv Day 12: samples and cup up vvvv
+--}
+
+setcps(13/60/1)
+
+setcps 0.214
+
+d1 $ striate 2 $ sound "breaks152"
+
+d1
+$ fast 4
+-- $ randslice 32
+$ slice 8 (run 8)
+$ sound "breaks152"
+# legato 1
+
+d1
+$ fast 2
+$ slice 8 "[<0*8 0*2> 3*4 2 4] [4..7]"
+$ sound "breaks165"
+# legato 1
+
+d1
+$ rev
+$ chop 4
+$ sound "breaks152"
+# legato 1
+
+d1
+-- $ slow 0.5
+$ fast 1.5
+$ chop 8
+$ randslice (irand 8)
+$ sound "numbers*4"
+# n "1 2 3 4"
+
+d1
+-- $ slow 0.5
+$ fast 1.5
+$ striate 8
+$ randslice (irand 8)
+$ sound "numbers*4"
+# n "1 2 3 4"
+
+setcps 1
+
+d1 $ slow 4 $ striate 3 $ sound "numbers:1 numbers:2 numbers:3 numbers:4"
+
+d1 $ slow 4 $ chop 3 $ sound "numbers:1 numbers:2 numbers:3 numbers:4"
+
+d1 $ slow 4 $ sound "numbers:1 numbers:2 numbers:3 numbers:4"
+
+
+d1
+$ slow (rand +| 1)
+$ striateBy ((irand 4)*8) (1/16)
+$ sound "<numbers*2, bev> <bev, breaks165> <numbers*2, breaks152>"
+# n "1 2 3 4"
+# legato 1
+
+d1
+-- $ striateBy 2 (1/2)
+$ chop 2
+$ sound "amencutup*8"
+# n (irand 8)

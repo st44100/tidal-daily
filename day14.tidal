@@ -1,0 +1,60 @@
+{--
+  Transition
+  xfade and cluch.
+  Other transitions are broken?
+--}
+hush
+p 1
+  $ s "bd*16?" # cut 1 # gain 1
+
+d1
+  $ s "bd*16?" # cut 1 # gain 1
+
+d2 $ s "cp"
+
+xfade 1
+  $ s "arpy(3, 8) arpy(5,8)" # n (irand 10)
+
+hush
+---
+
+
+p "asdf" $ s "bd*16?" # cut 1 # gain 0.8
+
+xfade "asdf" $ s "arpy(3, 8)" # (irand 10)
+
+hush
+---
+
+d1 $ s "bd*16"
+
+xfade 1 $ s "arpy*16" # (irand 10)
+
+xfade 1 $ s "cp*16?"
+
+clutch 1 $ s "bd*32?" # cut 1
+
+clutch 1 $ s "cp*32?" # cut 1
+
+clutch 1
+  $ every 8 (# hpf (range 1000 10000 saw))
+  -- $ every 8 (# lpf (range 100 1000 sine))
+  $ every 3 (slow 2)
+  $ every 2 (striate (irand 2))
+  $ stack [
+    s "cp*32?" # cut 1,
+    s "arpy*16?" # n (irand 10)
+  ]
+
+xfadeIn 1 32
+  $ every 8 (# hpf (range 1000 10000 saw))
+  -- $ every 8 (# lpf (range 100 1000 sine))
+  $ every 3 (slow 2)
+  $ every 2 (striate (irand 2))
+  $ stack [
+    s "arpy*32?" # cut 2 #n (irand 10),
+    s "arpy*16?" # n (irand 10),
+    s "arpy*16?" # n (irand 10) # vowel "{a e i u o}%2"
+  ]
+
+hush
